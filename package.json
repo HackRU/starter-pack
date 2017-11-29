@@ -1,0 +1,23 @@
+{
+  "name": "coding-samples",
+  "version": "1.0.0",
+  "description": "Codecademy but crazy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackRU/HackRU-Starter-Pack.git"
+  },
+  "keywords": [
+    "tutorial",
+    "docker"
+  ],
+  "author": "HackRU R&D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HackRU/HackRU-Starter-Pack/issues"
+  },
+  "homepage": "https://github.com/HackRU/HackRU-Starter-Pack#readme"
+}
