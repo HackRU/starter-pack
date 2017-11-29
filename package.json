@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/HackRU/HackRU-Starter-Pack/issues"
   },
-  "homepage": "https://github.com/HackRU/HackRU-Starter-Pack#readme"
+  "homepage": "https://github.com/HackRU/HackRU-Starter-Pack#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-pty": "^0.7.3"
+  }
 }
