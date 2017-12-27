@@ -1,0 +1,103 @@
+<html>
+<head>
+  <title>Coding Samples</title>
+<style>
+
+/* Styles modified from https://codepen.io/addyosmani/pen/avxmvN */
+
+body {
+
+  background: url("osx_snow_leopard_bg.png")  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  background-color: #272727;
+  padding: 10px;
+}
+
+.termButtons {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 6px;
+  left: 6px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+}
+
+.termMinimize {
+  left: 11px;
+  background-color: #ffc100;
+  border-color: #9d802c;
+}
+
+.termZoom {
+  left: 16px;
+  background-color: #00d742;
+  border-color: #049931;
+}
+
+.termMenu {
+  width: 640px;
+  box-sizing: border-box;
+  height: 25px;
+  background-color: #bbb;
+  margin: 0 auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.termScreen {
+  background-color: #151515;
+  box-sizing: border-box;
+  width: 640px;
+  height: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+p {
+
+  margin-left: 1.5em;
+  text-align: left;
+  font-size: 1.25em;
+  font-family: monospace;
+  white-space: normal;
+/*  overflow: hidden; */
+  width: 100%;
+  color: #fff;
+}
+
+span {
+  color: #fff;
+  font-weight: bold;
+}
+
+
+</style>
+
+</head>
+<body>
+
+</body>
+
+
+
+<div class=termMenu>
+  <div class="termButtons termClose"></div>
+  <div class="termButtons termMinimize"></div>
+  <div class="termButtons termZoom"></div>
+</div>
+<div class="termScreen">
+  <p>$ cd some_directory</p>
+  <p>$ user entered command</p>
+  <p> user output </p>
+  <p>$ command....</p>
+</div>
