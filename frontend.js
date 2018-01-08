@@ -1,5 +1,4 @@
 var socket = io();
-var $outputs = $("#outputs");
 
 //reads input from text box, upon enter key pressed
 $(document).ready(function(){
@@ -24,7 +23,8 @@ $(document).ready(function(){
 });
 
 socket.on('output', function(data){
-    $outputs.append(data);
+    console.log("output");
+    $("#outputs").append( "<p>"+data+ "</p>");
 });
 
 socket.on('fuck', function(){

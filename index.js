@@ -22,7 +22,7 @@ var term = pty.spawn('sh', [], {
 // Listen on the terminal for output and send it to the client
 term.on('data', function(data){
    console.log(data);
-   term.emit("dadada", data);
+   io.emit("output", data);
   
 });
 
@@ -35,11 +35,6 @@ io.on('connection', (socket) =>{
    //stuck echo in front to be "secure"
       term.write(data + "\r");
      // console.log(data)
-   });
-
-   socket.on('dadada', function(data){
-      console.log("out");
-      socket.emit("output", data);
    });
 });
 
