@@ -8,6 +8,7 @@ var http = require('http');
 // Creating an HTTP server
 var server = http.createServer(app).listen(8080);
 var io = require('socket.io')(server);
+var help = require('socket.io');
 
 // Create terminal
 var term = pty.spawn('sh', [], {
@@ -20,18 +21,31 @@ var term = pty.spawn('sh', [], {
 
 // Listen on the terminal for output and send it to the client
 term.on('data', function(data){
-   socket.emit('output', data);
+   console.log(data);
+   term.emit("dadada", data);
+  
 });
+
+
+
 
 // Listen on the client and send any input to the terminal
-socket.on('input', function(data){
+io.on('connection', (socket) =>{
+   socket.on('input', function(data){
    //stuck echo in front to be "secure"
-   term.write("echo " + data);
+      term.write(data + "\r");
+     // console.log(data)
+   });
+
+   socket.on('dadada', function(data){
+      console.log("out");
+      socket.emit("output", data);
+   });
 });
 
+
 // When socket disconnects, destroy the terminal
-socket.on("disconnect", function(){
+io.on("disconnect", function(){
    term.destroy();
    console.log("bye");
-});
 });

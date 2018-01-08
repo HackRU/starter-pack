@@ -22,7 +22,7 @@
   "homepage": "https://github.com/HackRU/HackRU-Starter-Pack#readme",
   "dependencies": {
     "express": "^4.16.2",
-    "node-pty": "^0.7.3",
+    "node-pty": "^0.7.4",
     "socket.io": "^2.0.4"
   }
 }
