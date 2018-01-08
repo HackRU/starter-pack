@@ -22,8 +22,11 @@ var term = pty.spawn('sh', [], {
 // Listen on the terminal for output and send it to the client
 term.on('data', function(data){
    console.log(data);
-   io.emit("output", data);
-  
+   var arr = data.split('\n');
+   var i;
+   for(i=0; i < arr.length; i++){
+      io.emit('output', arr[i]);
+   } 
 });
 
 
