@@ -1,0 +1,4 @@
+[submodule "test-x/docker-image"]
+	path = test-x/docker-image
+	url = https://github.com/tal357/docker-desktop.git
+	branch = 16.04_base_image

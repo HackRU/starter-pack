@@ -1,6 +1,6 @@
 
 #build image if not there
-(docker image ls | grep ssh-test) || (docker build -t ssh-test git://github.com/rogaha/docker-desktop.git)
+(docker image ls | grep ssh-test) || (docker build -t ssh-test docker-image)
 #run image, putting first argument as port. Empty string is OK: docker will just pick a port
 CONTAINER_ID=$(docker run -d -p $1:22 ssh-test)
 #we need creds... client-side sshes will require it.
