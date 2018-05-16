@@ -1,6 +1,6 @@
 
 #build image if not there
-(docker image ls | grep ssh-test) || (docker build -t ssh-test docker-image)
+(docker image ls | grep ssh-test) || (docker build -t ssh-test /home/ubuntu/HackRU-Starter-Pack/test-x/docker-image)
 #run image, putting first argument as port. Empty string is OK: docker will just pick a port
 CONTAINER_ID=$(docker run -d -p $1:22 ssh-test)
 #we need creds... client-side sshes will require it.
