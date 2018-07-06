@@ -5,6 +5,7 @@
 * The hope is to allow for full GUI sessions (X sessions) so that newbies are not confined to an uncomfortable shell.
 * We can initialise (hopefully) with arbitrary Docker images so that users can try almost anything out.
 * Users (may be) able to host their hacks off their sandbox.
+* The main idea is to have a (somewhat) central server that users can use. This'll help us keep things organized.
 
 ## Inspiration
 * The OG starter pack being worthless.
