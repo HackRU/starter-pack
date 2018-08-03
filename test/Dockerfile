@@ -1,36 +1,12 @@
-FROM osrf/ros:indigo-desktop-full
+FROM ubuntu:16.04
 
-ENV USERNAME archie
-RUN useradd -m $USERNAME && \
-    echo "$USERNAME:$USERNAME" | chpasswd && \
-    usermod --shell /bin/bash $USERNAME && \
-    usermod -aG sudo $USERNAME && \
-    echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME && \
-    chmod 0440 /etc/sudoers.d/$USERNAME && \
-    usermod --uid 1000 $USERNAME && \
-    usermod --gid 1000 $USERNAME
+RUN apt update && apt install -y curl \
+    && curl https://winswitch.org/gpg.asc | apt-key add - \
+    && echo "deb http://winswitch.org/ xenial main" > /etc/apt/sources.list.d/winswitch.list
 
-USER $USERNAME
-FROM ubuntu:latest
-
-# install dependencies
-RUN apt update
-RUN apt install -y apt-transport-https
-RUN apt install -y curl
-RUN apt install -y git
-RUN curl -sL https://deb.nodesource.com/setup_8.x
-RUN apt install -y build-essential nodejs npm
-
-# get OS.js
-RUN git clone https://github.com/os-js/OS.js.git && \
-    cd OS.js
-
-# build and project OS.js, exposes to port 8000
-WORKDIR OS.js/
-RUN npm install && \
-    node osjs build
-
-RUN npm install -g supervisor
-RUN npm install sqlite3 mysql
-CMD ["bash", "bin/docker_start.sh"]
-EXPOSE 8000
+RUN apt  update && DEBIAN_FRONTEND=noninteractive apt install -y openssh-server \
+    x11-apps xterm language-pack-en-base \
+    xserver-xephyr i3 xpra
+RUN apt install websockify
+CMD xpra start --bind-tcp=0.0.0.0:14500 --html=on --start=xterm
+EXPOSE 14500
