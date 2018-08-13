@@ -34,3 +34,34 @@ Xpra produces a crap ton of output. Make sure you can scroll or memorize
 gibberish passwords quickly.
 
 Xpra loads, but into... something I don't get. Investigation will be done.
+
+## ECS Tutorial
+
+The `ecs_tutorial` directory contains a shell script, `tutorial.sh`,
+that runs the Amazon Elastic Cloud Service
+[tutorial](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_tutorial_fargate.html).
+The script works with `bash`'s emulation of `sh` and with `dash`,
+so it should work with any other `sh`.
+The tutorial depends on the AWS CLI,
+which you can install with `pip install awscli`,
+and on the ECS CLI, which I installed through the Arch User Repository
+(the ECS CLI is written in Go, if you're curious).
+Note that the tutorial assumes that `aws` is aliased to `python -m awscli`
+(the script creates this alias itself because it doesn't inherit aliases).
+You will also need to configure the AWS CLI if you haven't already,
+as explained in the Prerequisites section of the tutorial.
+The AWS CLI is not capable of deleting Virtual Private Clouds (VPCs)
+if they have active dependencies, as they will at the end of the tutorial,
+so when the deletion inevitably fails,
+you will need to delete the VPC through the console.
+The CloudFormation stack deletion will wait for ten minutes
+before it times out, so you don't have to rush to delete the VPC.
+
+Maybe we should make each code sample a separate cluster.
+For example, if we have a coding sample for Makefiles,
+we would add a container to the Makefiles cluster
+each time a new user wants to use the Makefiles sample.
+The next thing to do here is probably to see if we can rewrite the script
+in Python so that it can interface with the rest of our codebase
+(and so that we don't have to do janky shell script stuff
+just to populate variables).
